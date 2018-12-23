@@ -1,35 +1,24 @@
 {
-  "name": "cezerin",
+  "name": "sbatashop",
   "version": "0.33.0",
-  "description": "Cezerin is React and Node.js based eCommerce platform. https://cezerin.com",
+  "description": "SbataShop is React and Node.js based eCommerce platform",
   "keywords": [
-    "cezerin",
+    "sbatashop",
     "ecommerce",
     "shopping cart",
     "shop",
     "cms"
   ],
-  "homepage": "https://cezerin.com",
-  "bugs": "https://github.com/cezerin/cezerin/issues",
+  "bugs": "https://github.com/hoflish/sbatashop/issues",
   "license": "MIT",
   "author": {
-    "name": "Restmount <jsonmount@gmail.com>",
-    "url": "https://github.com/restmount"
+    "name": "Hassan Chabab <chababhassan@gmail.com>",
+    "url": "https://github.com/hoflish"
   },
-  "contributors": [
-    {
-      "name": "Restmount <jsonmount@gmail.com>",
-      "url": "https://github.com/restmount"
-    },
-    {
-      "name": "Sergey Onufrienko <sergey@onufrienko.com>",
-      "url": "https://github.com/sonufrienko"
-    }
-  ],
   "main": "src/api/server/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cezerin/cezerin"
+    "url": "https://github.com/hoflish/sbatashop"
   },
   "scripts": {
     "setup": "node -r esm src/api/server/setup.js",
