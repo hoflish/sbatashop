@@ -1,7 +1,7 @@
-import CezerinClient from 'cezerin-client';
+import SbataShopClient from '@sbatashop/client';
 import clientSettings from './settings';
 
-const api = new CezerinClient({
+const api = new SbataShopClient({
 	ajaxBaseUrl: clientSettings.ajaxBaseUrl || '/ajax'
 });
 

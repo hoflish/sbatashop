@@ -1,5 +1,5 @@
 import winston from 'winston';
-import CezerinClient from 'cezerin-client';
+import SbataShopClient from '@sbatashop/client';
 import React from 'react';
 import { StaticRouter } from 'react-router';
 import { renderToString } from 'react-dom/server';
@@ -16,7 +16,7 @@ import App from '../shared/app';
 
 initOnServer({
 	language: serverSettings.language,
-	api: new CezerinClient({
+	api: new SbataShopClient({
 		ajaxBaseUrl: serverSettings.ajaxBaseUrl
 	})
 });

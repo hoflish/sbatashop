@@ -7,7 +7,7 @@ const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
 	entry: {
-		app: ['babel-polyfill', './src/store/client/index.js'],
+		app: ['@babel/polyfill', './src/store/client/index.js'],
 		theme: ['theme']
 	},
 
@@ -43,8 +43,8 @@ module.exports = {
 				use: {
 					loader: 'babel-loader',
 					options: {
-						presets: ['env', 'react'],
-						plugins: ['transform-class-properties']
+						presets: ['@babel/preset-env', '@babel/preset-react'],
+						plugins: ['@babel/plugin-proposal-class-properties']
 					}
 				}
 			},
