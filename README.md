@@ -11,3 +11,20 @@ Built with:
 - Babel
 - WebPack 4
 - MongoDB
+
+## TODO
+
+- [ ] Update all dependencies
+- [ ] Add version bumping script
+- [ ] Dockerize the apps
+- [ ] REST API
+  - [ ] Add tests for REST API
+  - [ ] Add error tracking (e.g. Sentry)
+  - [ ] Add Sengrid mail service
+  - [ ] Use appropriate error handling
+- [ ] Add end-to-end testing for theme and admin apps
+- [ ] theme
+  - [ ] Change default theme UI
+- [ ] build
+  - [ ] Review webpack config
+- [ ] ...?
