@@ -60,6 +60,7 @@
     "babel-loader": "^8.0.4",
     "body-parser": "^1.18.3",
     "chart.js": "^2.7.2",
+    "classnames": "^2.2.6",
     "clean-webpack-plugin": "^0.1.19",
     "concurrently": "^4.0.1",
     "cookie-parser": "^1.4.3",
