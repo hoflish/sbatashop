@@ -1,185 +1,20 @@
 import React from 'react';
 import TopBar from './TopBar';
 import TopBarBottom from './TopBarBottom';
-
-const categories = [
-  {
-    enabled: true,
-    id: '5bec583ecb36d72ec41a2526',
-    image: '',
-    name: 'Category A',
-    parent_id: null,
-    path: '/category-a',
-    slug: 'category-a',
-    url: 'http://localhost:3000/category-a',
-  },
-  {
-    enabled: true,
-    id: '5bec583fcb36d72ec41a2527',
-    image: '',
-    name: 'Category B',
-    parent_id: null,
-    path: '/category-b',
-    slug: 'category-b',
-    url: 'http://localhost:3000/category-b',
-  },
-  {
-    enabled: true,
-    id: '5bec583fcb36d72ec41a2528',
-    image: '',
-    name: 'Category C',
-    parent_id: null,
-    path: '/category-c',
-    slug: 'category-c',
-    url: 'http://localhost:3000/category-c',
-  },
-  {
-    enabled: true,
-    id: '5bec583fcb36d72ec41a2529',
-    image: '',
-    name: 'Subcategory 1',
-    parent_id: '5bec583ecb36d72ec41a2526',
-    path: '/category-a-1',
-    slug: 'category-a-1',
-    url: 'http://localhost:3000/category-a-1',
-  },
-  {
-    enabled: true,
-    id: '5bec583fcb36d72ec41a252a',
-    image: '',
-    name: 'Subcategory 2',
-    parent_id: '5bec583ecb36d72ec41a2526',
-    path: '/category-a-2',
-    slug: 'category-a-2',
-    url: 'http://localhost:3000/category-a-2',
-  },
-  {
-    enabled: true,
-    id: '5bec583fcb36d72ec41a252b',
-    image: '',
-    name: 'Subcategory 3',
-    parent_id: '5bec583ecb36d72ec41a2526',
-    path: '/category-a-3',
-    slug: 'category-a-3',
-    url: 'http://localhost:3000/category-a-3',
-  },
-  {
-    enabled: true,
-    id: '5bec583fcb36d72ec41a252c',
-    image: '',
-    name: 'Subcategory 3-1',
-    parent_id: '5bec583fcb36d72ec41a252b',
-    path: '/category-a-3-1',
-    slug: 'category-a-3-1',
-    url: 'http://localhost:3000/category-a-3-1',
-  },
-  {
-    enabled: true,
-    id: '5bec583fcb36d72ec41a252b',
-    image: '',
-    name: 'Subcategory 3',
-    parent_id: '5bec583ecb36d72ec41a2526',
-    path: '/category-a-3',
-    slug: 'category-a-3',
-    url: 'http://localhost:3000/category-a-3',
-  },
-  {
-    enabled: true,
-    id: '5bec583fcb36d72ec41a252c',
-    image: '',
-    name: 'Subcategory 3-1',
-    parent_id: '5bec583fcb36d72ec41a252b',
-    path: '/category-a-3-1',
-    slug: 'category-a-3-1',
-    url: 'http://localhost:3000/category-a-3-1',
-  },
-  {
-    enabled: true,
-    id: '5bec583fcb36d72ec41a252b',
-    image: '',
-    name: 'Subcategory 3',
-    parent_id: '5bec583ecb36d72ec41a2526',
-    path: '/category-a-3',
-    slug: 'category-a-3',
-    url: 'http://localhost:3000/category-a-3',
-  },
-  {
-    enabled: true,
-    id: '5bec583fcb36d72ec41a252c',
-    image: '',
-    name: 'Subcategory 3-1',
-    parent_id: '5bec583fcb36d72ec41a252b',
-    path: '/category-a-3-1',
-    slug: 'category-a-3-1',
-    url: 'http://localhost:3000/category-a-3-1',
-  },
-  {
-    enabled: true,
-    id: '5bec583fcb36d72ec41a252b',
-    image: '',
-    name: 'Subcategory 3',
-    parent_id: '5bec583ecb36d72ec41a2526',
-    path: '/category-a-3',
-    slug: 'category-a-3',
-    url: 'http://localhost:3000/category-a-3',
-  },
-  {
-    enabled: true,
-    id: '5bec583fcb36d72ec41a252c',
-    image: '',
-    name: 'Subcategory 3-1',
-    parent_id: '5bec583fcb36d72ec41a252b',
-    path: '/category-a-3-1',
-    slug: 'category-a-3-1',
-    url: 'http://localhost:3000/category-a-3-1',
-  },
-  {
-    enabled: true,
-    id: '5bec583fcb36d72ec41a252b',
-    image: '',
-    name: 'Subcategory 3',
-    parent_id: '5bec583ecb36d72ec41a2526',
-    path: '/category-a-3',
-    slug: 'category-a-3',
-    url: 'http://localhost:3000/category-a-3',
-  },
-  {
-    enabled: true,
-    id: '5bec583fcb36d72ec41a252c',
-    image: '',
-    name: 'Subcategory 3-1',
-    parent_id: '5bec583fcb36d72ec41a252b',
-    path: '/category-a-3-1',
-    slug: 'category-a-3-1',
-    url: 'http://localhost:3000/category-a-3-1',
-  },
-  {
-    enabled: true,
-    id: '5bec583fcb36d72ec41a252b',
-    image: '',
-    name: 'Subcategory 3',
-    parent_id: '5bec583ecb36d72ec41a2526',
-    path: '/category-a-3',
-    slug: 'category-a-3',
-    url: 'http://localhost:3000/category-a-3',
-  },
-  {
-    enabled: true,
-    id: '5bec583fcb36d72ec41a252c',
-    image: '',
-    name: 'Subcategory 3-1',
-    parent_id: '5bec583fcb36d72ec41a252b',
-    path: '/category-a-3-1',
-    slug: 'category-a-3-1',
-    url: 'http://localhost:3000/category-a-3-1',
-  },
-];
-
+/*
+  TODO:
+  #1. Get header logo from settings (done)
+  #2. Add cart count indicator (done)
+  #3. Style category NavLink, "is-active" class (done)
+  #4. Handle search
+*/
 class Header extends React.Component {
   render() {
+    const { categories, settings, cart } = this.props.state;
+
     return (
       <div className="head">
-        <TopBar />
+        <TopBar settings={settings} cart={cart} />
         <TopBarBottom categories={categories} />
       </div>
     );

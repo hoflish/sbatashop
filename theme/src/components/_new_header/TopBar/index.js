@@ -1,5 +1,4 @@
 import React from 'react';
-import { Icon } from '@mdi/react';
 import {
   mdiMagnify,
   mdiCartOutline,
@@ -7,39 +6,46 @@ import {
   mdiAccount,
   mdiPhone,
 } from '@mdi/js';
+import Icon from '../../Icon';
 import Logo from './Logo';
+import CartCount from './CartCount';
 
 class TopBar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isMobileSearch: false,
-    };
-    this.searchInput = React.createRef();
-  }
+  state = {
+    isMobileSearch: false,
+  };
+  searchInput = React.createRef();
 
   onMobileSearch = () => {
-    this.setState(
-      () => ({ isMobileSearch: true }),
-      () => {
-        this.searchInput.current.focus();
-      }
-    );
+    this.setState({ isMobileSearch: true });
   };
 
   onCloseMobileSearch = () => {
     this.setState({ isMobileSearch: false });
   };
 
-  render() {
+  focusTextInput = () => {
+    this.searchInput.current.focus();
+  };
+
+  componentDidUpdate(prevProps, prevState) {
     const { isMobileSearch } = this.state;
+    if (isMobileSearch !== prevState.isMobileSearch && !!isMobileSearch) {
+      this.focusTextInput();
+    }
+  }
+
+  render() {
+    const { settings, cart } = this.props;
+    const { isMobileSearch } = this.state;
+
     return (
       <header>
         <div className="tb-wp" role="banner">
           <div className="tb-inner container">
             {/* TopBar Logo */}
             <div className="tb-logo-wp">
-              <Logo />
+              <Logo src={settings.logo} />
             </div>
 
             {/* TopBar search */}
@@ -49,39 +55,35 @@ class TopBar extends React.Component {
               }
             >
               <div className="tb-search flex-row">
-                <span className="mdr-icon-wp">
-                  <Icon
-                    onClick={this.onCloseMobileSearch}
-                    path={mdiArrowLeft}
-                    size="24px"
-                    className="tb-search-back mdr-icon"
-                  />
-                </span>
+                <button
+                  onClick={this.onCloseMobileSearch}
+                  className="tb-search-back mdr-icon-btn flex-row"
+                >
+                  <Icon path={mdiArrowLeft} />
+                </button>
                 <form>
                   <div className="tb-search-box">
                     <input ref={this.searchInput} className="tb-search-input" />
                   </div>
                   <button className="tb-search-btn">
-                    <Icon path={mdiMagnify} size="24px" className="mdr-icon" />
+                    <Icon noWrap path={mdiMagnify} />
                   </button>
                 </form>
               </div>
             </div>
 
-            {/* --- TopBar right end section */}
+            {/* --- TopBar right end section --- */}
             <div className="tb-end">
-              <span
+              <button
                 onClick={this.onMobileSearch}
-                className="mdr-icon-wp mb-navbar-search"
+                className="mb-navbar-search mdr-icon-btn flex-row"
               >
-                <Icon path={mdiMagnify} size="24px" className="mdr-icon" />
-              </span>
+                <Icon path={mdiMagnify} />
+              </button>
 
               <div className="mr-s">
                 <a href="/support" className="flex-row">
-                  <span className="mdr-icon-wp">
-                    <Icon path={mdiPhone} size="24px" className="mdr-icon" />
-                  </span>
+                  <Icon path={mdiPhone} />
                   <div className="tb-contact-text  is-hidden-mobile">
                     <span className="tb-contact-label">Appelez nous</span>
                     <span className="tb-contact-sublabel">0620 12 3456</span>
@@ -91,9 +93,7 @@ class TopBar extends React.Component {
 
               <div className="flex-row mr-s tb-signin">
                 <a href="/signin" className="flex-row">
-                  <span className="mdr-icon-wp is-hidden-tablet">
-                    <Icon path={mdiAccount} size="24px" className="mdr-icon" />
-                  </span>
+                  <Icon path={mdiAccount} wrapperClassName="is-hidden-tablet" />
                   <button className="tb-signin-text tb-signin-btn  is-hidden-mobile">
                     Se connecter
                   </button>
@@ -105,13 +105,8 @@ class TopBar extends React.Component {
               {/* Cart */}
               <div className="tb-cart">
                 <a href="/cart" className="flex-row">
-                  <span className="mdr-icon-wp ">
-                    <Icon
-                      path={mdiCartOutline}
-                      size="24px"
-                      className="mdr-icon"
-                    />
-                  </span>
+                  <CartCount cart={cart} />
+                  <Icon path={mdiCartOutline} />
                   <span className="tb-cart-text is-hidden-mobile">Panier</span>
                 </a>
               </div>

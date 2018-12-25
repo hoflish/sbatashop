@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Icon } from '@mdi/react';
 import { mdiMenu, mdiClose } from '@mdi/js';
 import Drawer, { DrawerHeader, DrawerAppContent } from '@material/react-drawer';
 import NavBar from './NavBar';
+import Icon from '../../Icon';
 
 class TopBarBottom extends React.Component {
   state = { open: false };
@@ -36,12 +36,12 @@ class TopBarBottom extends React.Component {
                   <div>
                     <span>App Logo</span>
                   </div>
-                  <div className="mdr-icon-wp">
+                  <div>
                     <button
                       onClick={this.onDrawerClose}
-                      className="mdr-icon-btn"
+                      className="mdr-icon-btn flex-row"
                     >
-                      <Icon path={mdiClose} size="24px" className="mdr-icon" />
+                      <Icon path={mdiClose} />
                     </button>
                   </div>
                 </div>
@@ -58,11 +58,9 @@ class TopBarBottom extends React.Component {
               <button
                 ref={this.topBarBottomMenu}
                 onClick={this.onDrawerOpen}
-                className="mdr-icon-btn nav-menu flex-row"
+                className="nav-menu mdr-icon-btn flex-row"
               >
-                <span className="mdr-icon-wp ">
-                  <Icon path={mdiMenu} size="24px" className="mdr-icon" />
-                </span>
+                <Icon path={mdiMenu} />
                 <span className="nav-menu-text">Nos categories</span>
               </button>
             </DrawerAppContent>

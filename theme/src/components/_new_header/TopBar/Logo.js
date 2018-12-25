@@ -1,21 +1,18 @@
 import React from 'react';
 import { string } from 'prop-types';
-// TODO: IMPORTANT: asset for test purpose only
-const testLogo =
-  'https://trellis.co/wp-content/uploads/2015/09/hidden_meanings_facts_within_famous_logos_cover_image.jpg';
+import { NavLink } from 'react-router-dom';
 
-// TODO: use svg or text for logo rendering
 const Logo = props => {
-  const { logo, alt, title } = props;
+  const { src, alt, title } = props;
   return (
-    <a href="/" title={title || ''} className="tb-logo">
-      <img src={logo || testLogo} alt={alt || ''} />
-    </a>
+    <NavLink to="/" title={title || ''} className="tb-logo">
+      <img src={src || ''} alt={alt || 'App Logo'} />
+    </NavLink>
   );
 };
 
 Logo.propTypes = {
-  logo: string,
+  src: string,
   alt: string,
   title: string,
 };

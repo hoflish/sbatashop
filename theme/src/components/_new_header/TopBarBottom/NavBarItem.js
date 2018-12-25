@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
-import Icon from '@mdi/react';
 import { mdiChevronRight } from '@mdi/js';
+import Icon from '../../Icon';
 
 export default class NavBarItem extends React.Component {
   static propTypes = {
@@ -77,9 +77,12 @@ export default class NavBarItem extends React.Component {
           </NavLink>
           {hasItems &&
             isMobile && (
-              <span onClick={this.toggleNavItem} className="mdr-icon-wp">
-                <Icon path={mdiChevronRight} size="24px" />
-              </span>
+              <button
+                onClick={this.toggleNavItem}
+                className="mdr-icon-btn flex-row"
+              >
+                <Icon path={mdiChevronRight} />
+              </button>
             )}
         </div>
         {hasItems && (
