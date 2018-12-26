@@ -10,7 +10,9 @@ import TopBarBottom from './TopBarBottom';
 */
 class Header extends React.Component {
   render() {
-    const { categories, settings, cart } = this.props.state;
+    const {
+      state: { categories, settings, cart },
+    } = this.props;
 
     return (
       <div className="head">

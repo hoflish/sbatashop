@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { mdiMenu, mdiClose } from '@mdi/js';
-import Drawer, { DrawerHeader, DrawerAppContent } from '@material/react-drawer';
+import { mdiMenu } from '@mdi/js';
+import Drawer, { DrawerHeader } from '@material/react-drawer';
 import NavBar from './NavBar';
 import Icon from '../../Icon';
 
@@ -13,18 +13,23 @@ class TopBarBottom extends React.Component {
     this.topBarBottomMenu.current.focus();
   };
 
-  onDrawerClose = () => {
-    this.setState({ open: false });
-    this.focusTopBarBottomMenu();
-  };
-
   onDrawerOpen = () => {
     this.setState({ open: true });
+  };
+
+  onDrawerClose = () => {
+    this.setState(
+      () => ({ open: false }),
+      () => {
+        this.focusTopBarBottomMenu();
+      }
+    );
   };
 
   render() {
     const { categories } = this.props;
     const { open } = this.state;
+
     return (
       <nav>
         <div className="container">
@@ -33,17 +38,7 @@ class TopBarBottom extends React.Component {
             <Drawer modal open={open} onClose={this.onDrawerClose}>
               <DrawerHeader>
                 <div className="flex-row flex-sb">
-                  <div>
-                    <span>App Logo</span>
-                  </div>
-                  <div>
-                    <button
-                      onClick={this.onDrawerClose}
-                      className="mdr-icon-btn flex-row"
-                    >
-                      <Icon path={mdiClose} />
-                    </button>
-                  </div>
+                  <span>App Logo</span>
                 </div>
               </DrawerHeader>
               <div className="mobile-nav">
@@ -54,7 +49,7 @@ class TopBarBottom extends React.Component {
                 />
               </div>
             </Drawer>
-            <DrawerAppContent className="flex-row flex-sb">
+            <div className="flex-row flex-sb">
               <button
                 ref={this.topBarBottomMenu}
                 onClick={this.onDrawerOpen}
@@ -63,7 +58,7 @@ class TopBarBottom extends React.Component {
                 <Icon path={mdiMenu} />
                 <span className="nav-menu-text">Nos categories</span>
               </button>
-            </DrawerAppContent>
+            </div>
           </div>
 
           {/* categories nav bar (desktop) */}
