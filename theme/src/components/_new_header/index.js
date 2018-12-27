@@ -1,6 +1,8 @@
 import React from 'react';
 import TopBar from './TopBar';
-import TopBarBottom from './TopBarBottom';
+import MobileNav from './MobileNav';
+import NavBar from './NavBar';
+
 /*
   TODO:
   #1. Get header logo from settings (done)
@@ -16,8 +18,24 @@ class Header extends React.Component {
 
     return (
       <div className="head">
-        <TopBar settings={settings} cart={cart} />
-        <TopBarBottom categories={categories} />
+        <header>
+          <TopBar settings={settings} cart={cart} />
+        </header>
+        <nav>
+          <div className="container">
+            <div className="is-hidden-tablet">
+              <MobileNav categories={categories} />
+            </div>
+
+            <div className="head-nav is-hidden-mobile">
+              <NavBar
+                categories={categories}
+                isMobile={false}
+                location={null}
+              />
+            </div>
+          </div>
+        </nav>
       </div>
     );
   }

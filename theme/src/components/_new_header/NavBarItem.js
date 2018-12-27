@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 import { mdiChevronRight } from '@mdi/js';
-import Icon from '../../Icon';
+import Icon from '../Icon';
 
 export default class NavBarItem extends React.Component {
   static propTypes = {
