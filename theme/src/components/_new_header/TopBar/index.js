@@ -9,12 +9,12 @@ import {
 import Icon from '../../Icon';
 import Logo from './Logo';
 import CartCount from './CartCount';
+import SearchBox from './SearchBox';
 
 class TopBar extends React.Component {
   state = {
     isMobileSearch: false,
   };
-  searchInput = React.createRef();
 
   onMobileSearch = () => {
     this.setState({ isMobileSearch: true });
@@ -24,19 +24,24 @@ class TopBar extends React.Component {
     this.setState({ isMobileSearch: false });
   };
 
-  focusTextInput = () => {
-    this.searchInput.current.focus();
+  // REVIEW: ...
+  handleSearch = search => {
+    const {
+      appState: { currentPage },
+    } = this.props;
+    if (currentPage.path === '/search') {
+      this.props.setSearch(search);
+    } else {
+      if (search && search !== '') {
+        this.props.setLocation('/search?search=' + search);
+      }
+    }
   };
 
-  componentDidUpdate(prevProps, prevState) {
-    const { isMobileSearch } = this.state;
-    if (isMobileSearch !== prevState.isMobileSearch && !!isMobileSearch) {
-      this.focusTextInput();
-    }
-  }
-
   render() {
-    const { settings, cart } = this.props;
+    const {
+      appState: { settings, cart, productFilter },
+    } = this.props;
     const { isMobileSearch } = this.state;
 
     return (
@@ -60,14 +65,11 @@ class TopBar extends React.Component {
               >
                 <Icon path={mdiArrowLeft} />
               </button>
-              <form>
-                <div className="tb-search-box">
-                  <input ref={this.searchInput} className="tb-search-input" />
-                </div>
-                <button className="tb-search-btn">
-                  <Icon noWrap path={mdiMagnify} />
-                </button>
-              </form>
+              <SearchBox
+                isMobileSearch={isMobileSearch}
+                value={productFilter.search}
+                onSearch={this.handleSearch}
+              />
             </div>
           </div>
 

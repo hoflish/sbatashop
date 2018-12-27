@@ -73,7 +73,7 @@ a.tb-logo {
   max-width: 480px;
 }
 
-.tb-search form {
+.tb-search .form {
   display: flex;
   flex-direction: row;
   flex: 1;
@@ -90,22 +90,26 @@ a.tb-logo {
   border-radius: 2px 0 0 2px;
   border-right: none;
   width: 100%;
+  position: relative;
 }
 
 .tb-search-input {
+  -webkit-box-flex: 1;
   background-color: transparent;
   border: none;
   box-shadow: none;
   color: inherit;
-  font-family: "Roboto", sans-serif;
+  flex: 1;
+  /*font-family: Roboto, sans-serif;*/
   font-size: 1rem;
   font-weight: 400;
-  line-height: 1.25rem;
+  line-height: 1.5rem;
   max-width: 100%;
   outline: none;
   text-align: inherit;
   width: 100%;
-  flex: 1;
+  height: 1.5rem;
+  padding-right: 2.5rem;
 }
 
 .tb-search-btn {
@@ -121,6 +125,12 @@ a.tb-logo {
   width: 2.5rem;
   height: 2rem;
   padding: 4px;
+}
+
+.tb-search-box .tb-search-clear {
+  position: absolute;
+  right: 12px;
+  top: 6px;
 }
 
 .tb-search .tb-search-back,
@@ -162,6 +172,15 @@ a.tb-logo {
     z-index: -1;
   }
 
+  .mb-search-active .tb-search-box {
+    border: 1px solid transparent;
+    border-right-color: #ddd;
+  }
+
+  .mb-search-active .tb-search-btn {
+    background-color: transparent;
+    border: 1px solid transparent;
+  }
 }
 
 /* TopBar right end section */
@@ -347,8 +366,6 @@ nav {
 .head-nav .nav-level-3 {
   padding: 0.25rem 0.75rem 0.75rem;
 }
-
-.head-nav a.is-active {}
 
 .mobile-nav li {
   display: block;

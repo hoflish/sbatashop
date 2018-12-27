@@ -3,23 +3,22 @@ import TopBar from './TopBar';
 import MobileNav from './MobileNav';
 import NavBar from './NavBar';
 
-/*
-  TODO:
-  #1. Get header logo from settings (done)
-  #2. Add cart count indicator (done)
-  #3. Style category NavLink, "is-active" class (done)
-  #4. Handle search
-*/
 class Header extends React.Component {
   render() {
     const {
-      state: { categories, settings, cart },
+      state: { categories, ...rest },
+      setSearch,
+      setLocation,
     } = this.props;
 
     return (
       <div className="head">
         <header>
-          <TopBar settings={settings} cart={cart} />
+          <TopBar
+            appState={rest}
+            setSearch={setSearch}
+            setLocation={setLocation}
+          />
         </header>
         <nav>
           <div className="container">
