@@ -1,8 +1,27 @@
 @import "~bulma/sass/utilities/initial-variables";
 
-$green: #00b366;
-$primary: $green;
-$link: #000;
+/* REVIEW: theme colors (under test)*/
+/* try #91969e for icon color */
+$ss-red: #f1404b;
+$ss-piper: #cb4d29;
+$ss-maroon: #860104;
+$ss-green: #0c9845;
+$ss-ebony-clay: #233041;
+$ss-bluewood: #243443;
+$ss-black: #24292e;
+$ss-denim: #106dbb;
+$ss-jumbo: #79787a;
+$ss-conch: #dadedc;
+$ss-light-grayish-blue: #a2a8bb;
+$ss-light-grayish-blue-1: #dddfe6;
+$ss-white-ter: #f4f5f9;
+
+$primary: $ss-green;
+$link: $ss-black;
+$text: $ss-black;
+$grey: $ss-jumbo;
+$icon-color:$ss-light-grayish-blue;
+$border-color: $ss-light-grayish-blue-1;
 
 $tag-background-color: #ffdd57;
 $tag-color: rgba(0, 0, 0, 0.7);
@@ -15,9 +34,19 @@ $breadcrumb-item-separator-color: #7a7a7a;
 @import "~rc-slider/assets/index.css";
 $ig-blue: #636363 !default;
 @import "~react-image-gallery/styles/scss/image-gallery-no-icon.scss";
+@import "~@material/react-drawer/dist/drawer.min.css";
+
+
+/*
+  TODO:
+    #1. customize/reset selectors
+    #2. Add helpers
+    #3. import other modules
+    #4. ...
+*/
 
 .image-gallery-bullets .image-gallery-bullets-container {
-  background-color: rgba(0,0,0,0.2);
+  background-color: rgba(0, 0, 0, 0.2);
   padding: 4px 0;
   border-radius: 20px;
   display: flex;
@@ -28,49 +57,27 @@ $ig-blue: #636363 !default;
 
 .image-gallery-right-nav,
 .image-gallery-left-nav {
-  background-color: rgba(0,0,0,0.2);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .image-gallery-thumbnails-wrapper.left {
   min-height: 340px;
 }
 
-.dark-overflow {
-  background: rgba(0,0,0,0.4);
-  position: fixed;
-  top: 3.25rem;
-  left: 0;
-  height: 100%;
-  z-index: 1001;
-  width: 100%;
-}
 
-body {
-  margin-top: 3.25rem;
-  transition: margin 200ms ease-in-out;
-}
-
-a, input, button {
+/* REVIEW:... */
+a,
+input,
+button {
   outline: none;
 }
 
-hr.separator {
-  margin: 1rem 0;
-}
-
-.hero-body, .section {
+.hero-body,
+.section {
   padding: 1.5rem;
 }
 
-.navbar-burger {
-  margin-left: 0;
-}
-
-.navbar-burger span {
-  height: 2px;
-  width: 18px;
-}
-
+/* REVIEW: remove */
 .box {
   border-radius: 0;
 }
@@ -84,11 +91,9 @@ hr.separator {
   font-weight: 300;
 }
 
-.shipping-address2 {}
-.shipping-postalcode {}
-.shipping-phone {}
-.shipping-company { display:none; }
-.shipping-comments {}
+.shipping-company {
+  display: none;
+}
 
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
@@ -100,24 +105,50 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-/*
-MOBILE
-*/
-@media screen and (max-width: 769px) {
-  body.search-active {
-    margin-top: 6.25rem;
-  }
-
-  body.noscroll {
-    position:fixed;
-    overflow:hidden;
-  }
+/* Icon global styles */
+.mdr-icon-wp {
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  box-sizing: border-box;
 }
 
+/*svg.mdr-icon path {
+  fill: #3a3e4a;
+}*/
+
+.mdr-icon-btn {
+  vertical-align: middle;
+  color: inherit;
+  outline: none;
+  background: none;
+  margin: 0;
+  border: none;
+  padding: 0;
+  line-height: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mdr-icon path {
+  fill: $icon-color;
+}
+
+.mdi-chevron-icon {
+  padding-top: 16px;
+  padding-left: 4px;
+}
+
+.mdi-chevron-icon svg path {
+  fill: $grey;
+}
+
+@import "_helpers.scss";
+@import "_header.scss";
 @import "homeSlider.scss";
 @import "checkout.scss";
 @import "cart.scss";
-@import "header.scss";
 @import "footer.scss";
 @import "category.scss";
 @import "product.scss";
